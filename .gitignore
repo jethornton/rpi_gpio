@@ -1,0 +1,8 @@
+*.dsc
+*.xz
+*.buildinfo
+*.changes
+rpi-gpio/debian/rpi-gpio
+rpi-gpio/debian/debhelper-build-stamp
+rpi-gpio/debian/rpi-gpio.substvars
+rpi-gpio/debian/.debhelper

@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+
+import sys, os
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5 import uic
+
+
+class main(QMainWindow):
+	def __init__(self):
+		super().__init__()
+		if os.path.split(sys.argv[0])[0] == '/usr/bin':
+			lib_path = '/usr/lib/librpi-gpio'
+			print('Installed')
+			devel = False
+			if len(sys.argv) > 1:
+				if sys.argv[1] == 'devel':
+					devel = True
+		if os.path.split(sys.argv[0])[0] == '.':
+			lib_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
+			print('In Development')
+			devel = True
+		uic.loadUi(os.path.join(lib_path, 'rpi-gpio.ui'), self)
+		#self.setGeometry(50, 50, 500, 300)
+		self.setWindowTitle("Rpi GPIO Calculator")
+		self.calculatePB.clicked.connect(self.calculate)
+		self.show()
+
+	def calculate(self):
+		dir_mask = 0.0
+		exclude_mask = 0.0
+		for i in range(26):
+			dir_mask += (getattr(self, f'dirSP_{i}').value() * pow(2, i))
+		self.directionLE.setText(f'Direction Mask {int(dir_mask)}')
+		for i in range(26):
+			exclude_mask += (getattr(self, f'excludeSP_{i}').value() * pow(2, i))
+		self.excludeLE.setText(f'Exclude Mask {int(exclude_mask)}')
+
+		self.loadrtLE.setText(f'loadrt hal_pi_gpio dir={int(dir_mask)} exclude={int(exclude_mask)}')
+
+if __name__ == '__main__':
+	app = QApplication(sys.argv)
+	gui = main()
+	sys.exit(app.exec_())

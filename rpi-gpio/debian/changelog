@@ -1,0 +1,5 @@
+rpi-gpio (0.1.0) unstable; urgency=medium
+
+  * Initial release.
+
+ -- John Thornton <jt@gnipsel.com>  Thu, 14 Oct 2021 06:27:05 -0500

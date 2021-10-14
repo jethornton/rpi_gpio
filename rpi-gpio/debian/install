@@ -1,0 +1,3 @@
+src/rpi-gpio usr/bin
+src/rpi-gpio.ui usr/lib/librpi-gpio
+*.desktop usr/share/applications
