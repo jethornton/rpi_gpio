@@ -1164,31 +1164,7 @@
        <attribute name="title">
         <string>Info</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_7">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_55">
-          <property name="frameShape">
-           <enum>QFrame::Box</enum>
-          </property>
-          <property name="text">
-           <string>Beware gpio 21 and 22 are still reversed, they control rpins 15&amp;40
-and are backwards almost everywhere in rpi docs
-
-Example add function for software stepper
-addf hal_pi_gpio.read  base-thread
-addf stepgen.make-pulses base-thread
-addf stepgen.capture-position servo-thread
-addf motion-command-handler servo-thread
-addf motion-controller servo-thread
-addf stepgen.update-freq servo-thread
-addf hal_pi_gpio.write base-thread</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QGridLayout" name="gridLayout_7"/>
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -1204,13 +1180,46 @@ addf hal_pi_gpio.write base-thread</string>
            <enum>QFrame::Raised</enum>
           </property>
           <layout class="QGridLayout" name="gridLayout_9">
-           <item row="0" column="2">
-            <widget class="QWidget" name="widget_3" native="true"/>
+           <item row="0" column="1">
+            <widget class="QWidget" name="widget_3" native="true">
+             <layout class="QGridLayout" name="gridLayout_11">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pushButton">
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_55">
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beware gpio 21 and 22 are still reversed,&lt;/p&gt;&lt;p&gt;they control rpins 15 and 40 and are&lt;/p&gt;&lt;p&gt;backwards almost everywhere in rpi docs&lt;/p&gt;&lt;p&gt;Example add function for software stepper &lt;/p&gt;&lt;p&gt;addf hal_pi_gpio.read  base-thread &lt;/p&gt;&lt;p&gt;addf stepgen.make-pulses base-thread &lt;/p&gt;&lt;p&gt;addf stepgen.capture-position servo-thread &lt;/p&gt;&lt;p&gt;addf motion-command-handler servo-thread &lt;/p&gt;&lt;p&gt;addf motion-controller servo-thread &lt;/p&gt;&lt;p&gt;addf stepgen.update-freq servo-thread &lt;/p&gt;&lt;p&gt;addf hal_pi_gpio.write base-thread &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QWidget" name="widget" native="true"/>
-           </item>
-           <item row="0" column="1">
             <widget class="QWidget" name="widget_2" native="true">
              <layout class="QGridLayout" name="gridLayout_10">
               <item row="20" column="2">
