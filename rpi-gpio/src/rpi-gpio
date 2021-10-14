@@ -3,6 +3,7 @@
 import sys, os
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import uic
+from PyQt5.QtGui import QPixmap
 
 
 class main(QMainWindow):
@@ -17,11 +18,14 @@ class main(QMainWindow):
 					devel = True
 		if os.path.split(sys.argv[0])[0] == '.':
 			lib_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
+			print(lib_path)
 			print('In Development')
 			devel = True
 		uic.loadUi(os.path.join(lib_path, 'rpi-gpio.ui'), self)
 		#self.setGeometry(50, 50, 500, 300)
 		self.setWindowTitle("Rpi GPIO Calculator")
+		pixmap = QPixmap('pinout.png')
+		self.pinoutLBL.setPixmap(pixmap)
 		self.calculatePB.clicked.connect(self.calculate)
 		self.show()
 
