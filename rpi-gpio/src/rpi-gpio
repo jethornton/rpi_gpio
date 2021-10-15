@@ -26,7 +26,6 @@ class main(QMainWindow):
 		self.setWindowTitle("Rpi GPIO Calculator")
 		pixmap = QPixmap('pinout.png')
 		self.pinoutLBL.setPixmap(pixmap)
-		self.calculatePB.clicked.connect(self.calculate)
 		self.getHalPB.clicked.connect(self.getHal)
 		cbStuff = (('Excluded', (0,1)), ('Input', (0,0)), ('Output', (1,0)))
 		for i in range(26):
@@ -35,31 +34,13 @@ class main(QMainWindow):
 		self.show()
 
 	def getHal(self):
-		#i = 0
-		#print(getattr(self, f'select_{i}').currentData()[0])
 		dir_mask = 0.0
 		exclude_mask = 0.0
 		for i in range(26):
 			dir_mask += (getattr(self, f'select_{i}').currentData()[0] * pow(2, i))
-		#self.directionLE.setText(f'Direction Mask {int(dir_mask)}')
 		for i in range(26):
 			exclude_mask += (getattr(self, f'select_{i}').currentData()[1] * pow(2, i))
-		#self.excludeLE.setText(f'Exclude Mask {int(exclude_mask)}')
-
 		self.halLE.setText(f'loadrt hal_pi_gpio dir={int(dir_mask)} exclude={int(exclude_mask)}')
-
-
-	def calculate(self):
-		dir_mask = 0.0
-		exclude_mask = 0.0
-		for i in range(26):
-			dir_mask += (getattr(self, f'dirSP_{i}').value() * pow(2, i))
-		self.directionLE.setText(f'Direction Mask {int(dir_mask)}')
-		for i in range(26):
-			exclude_mask += (getattr(self, f'excludeSP_{i}').value() * pow(2, i))
-		self.excludeLE.setText(f'Exclude Mask {int(exclude_mask)}')
-
-		self.loadrtLE.setText(f'loadrt hal_pi_gpio dir={int(dir_mask)} exclude={int(exclude_mask)}')
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
