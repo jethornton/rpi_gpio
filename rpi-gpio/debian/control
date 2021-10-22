@@ -7,7 +7,7 @@ Priority: optional
 
 Package: rpi-gpio
 Priority: optional
-Architecture: any
+Architecture: all
 Depends: python3 (>=3.6), ${misc:Depends}
 Description: LinuxCNC Rpi GPIO Driver Tool.
  Generates the HAL line for LinuxCNC
